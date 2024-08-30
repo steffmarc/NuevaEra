@@ -1,13 +1,26 @@
-import React from 'react'
 import "./ItemListContainer.css"
+import {useState, useEffect} from "react"
+import { getLiving } from "../../asyncMock"
+import ItemList from "../ItemList/ItemList"
+import Categories from "../Categories/Categories"
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+
+  const [living, setLiving] = useState([])
+
+  useEffect( ()=>{
+    getLiving()
+    .then(respuesta => setLiving(respuesta))
+    .catch(error => console.log(error))
+
+}, [])
+
   return (
     <>
-    <main>
-        <h1 className='Title'>{greeting}</h1>
-        <p className='Intro'>Explora nuestra exclusiva colección de muebles y transforma tu hogar con estilo y elegancia. En Nueva Era, te ofrecemos piezas únicas que combinan diseño moderno y confort, perfectas para cada rincón de tu casa. Descubrí cómo podemos ayudarte a hacer realidad tus sueños de decoración y renovación.</p>
-    </main>
+    <Categories/>
+    <h2>Estilo y confort para tu Living</h2>
+    <p className="subtitle">Descubrí nuestra selección de muebles diseñados para hacer de tu living un espacio acogedor y elegante. Combina estilo y funcionalidad para crear un ambiente que refleje tu personalidad y se adapte a tus momentos de descanso y convivencia.</p>
+    <ItemList living={living}/>
     </>
   )
 }
