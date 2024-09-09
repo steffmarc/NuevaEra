@@ -1,13 +1,40 @@
 const living = [
-    {id: "S-001", nombre: "Sillón Seawest", precio: 450000, img:"../public/Img/seawest.jpg"},
-    {id: "MR-001", nombre: "Mesa ratona", precio: 700000, img:"../public/Img/mesa-de-centro-palm-springs-4.jpg"},
-    {id: "MLCD-001", nombre: "Mesa LCD", precio: 950000, img:"../public/Img/mueble-new-lcd-con-2-cajones-3.jpg"},
+    {id: "S001", 
+    nombre: "SILLÓN SEAWEST", 
+    precio: 450000, 
+    img:"../Img/seawest.jpg"},
+
+    {id: "MR001", 
+    nombre: "MESA RATONA SEA", 
+    precio: 700000, 
+    img:"../Img/mesa-de-centro-palm-springs-4.jpg"},
+
+    {id: "MLCD001", 
+    nombre: "MESA LCD SEA", 
+    precio: 950000, 
+    img:"../Img/mueble-new-lcd-con-2-cajones-3.jpg"},
 ]
 
-export const getLiving = () =>{
-    return new Promise((resolve) =>{
+export const getLiving = () => {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(living)
+            const formattedLiving = living.map(item => ({
+                ...item,
+                precio: item.precio.toLocaleString('es-AR')
+            }));
+            resolve(formattedLiving);
         }, 2000);
-    })
+    });
+}
+
+export const getProduct = (id) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const product = living.find(item => item.id === id);
+            if (product) {
+                product.precio = product.precio.toLocaleString('es-AR');
+            }
+            resolve(product);
+        }, 2000);
+    });
 }
