@@ -1,9 +1,8 @@
-
-.logo{
+.logo {
     height: 40px;
 }
 
-nav{
+nav {
     background-color: #84738C;
     display: flex;
     justify-content: space-between;
@@ -11,17 +10,41 @@ nav{
     padding: 15px 20px;
 }
 
-li{
-    color: #fff;
-    display: inline-block;
+nav ul {
     list-style: none;
-    padding: 10px 20px;
-    border-radius: 50px;
+    display: flex;
+    gap: 50px;
 }
 
-li:hover{
-    background-color: #fff;
-    color: #84738C;
-    cursor: pointer;
+nav ul li {
+    display: inline;
+}
 
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 5px;
+    position: relative; 
+    transition: transform 0.3s ease; 
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; 
+    left: 0;
+    bottom: 0; 
+    background-color: #ffffff; 
+    border-radius: 2px; 
+    transition: width 0.3s ease; 
+}
+
+nav ul li a:hover::after {
+    width: 100%; 
+}
+
+nav ul li a:hover {
+    cursor: pointer;
 }

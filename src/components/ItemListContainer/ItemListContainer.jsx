@@ -1,26 +1,28 @@
 import "./ItemListContainer.css"
 import {useState, useEffect} from "react"
-import { getLiving } from "../../asyncMock"
+import { getProducts, getProductByCat } from "../../asyncMock"
 import ItemList from "../ItemList/ItemList"
-import Categories from "../Categories/Categories"
+import { useParams } from "react-router-dom"
 
 const ItemListContainer = () => {
 
-  const [living, setLiving] = useState([])
+  const [products, setProducts] = useState([])
+
+  const {idCategory} = useParams()
 
   useEffect( ()=>{
-    getLiving()
-    .then(respuesta => setLiving(respuesta))
-    .catch(error => console.log(error))
+    const productFunction = idCategory ? getProductByCat : getProducts;
 
-}, [])
+    productFunction(idCategory)
+    .then(res => setProducts(res))
+
+}, [idCategory])
 
   return (
     <>
-    {/* <Categories/> */}
-    <h2>Estilo y confort para tu Living</h2>
-    <p className="subtitle">Descubrí nuestra selección de muebles diseñados para hacer de tu living un espacio acogedor y elegante. Combina estilo y funcionalidad para crear un ambiente que refleje tu personalidad y se adapte a tus momentos de descanso y convivencia.</p>
-    <ItemList living={living}/>
+    <h2>Estilo y confort para tu casa</h2>
+    <p className="subtitle">Descubrí nuestra selección de muebles diseñados para hacer de tu casa un espacio acogedor y elegante. Combina estilo y funcionalidad para crear un ambiente que refleje tu personalidad y se adapte a tus momentos de descanso y convivencia.</p>
+    <ItemList products={products}/>
     </>
   )
 }

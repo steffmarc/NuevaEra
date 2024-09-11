@@ -13,10 +13,12 @@
 }
 
 .detailInfo{
-    padding: 16px;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    width: 45vw;
+    height: auto;
 }
 
 .detailInfo h2{
@@ -29,13 +31,12 @@
 }
 
 p{
-    margin: 8px 0 8px 0;
+    margin: 10px 0 10px 0;
     color: rgb(112, 112, 112);
 }
 
 .price{
     color: rgb(112, 112, 112);
-    font-size: 1.2rem;
     margin-right: 30px;
 }
 
