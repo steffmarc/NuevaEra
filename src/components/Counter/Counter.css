@@ -9,10 +9,18 @@
     width: 120px;
     margin-right: 30px;
     gap: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.counterContainer strong{
+    width: 10px;
+    height: 25px;
+    justify-content: center;
+    text-align: center;
 }
 
 .btnCount{
-    margin: 0;
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-size: 20px;
     color: rgb(112, 112, 112);
@@ -20,6 +28,8 @@
     border-style: none;
     width: 50px;
     height: 40px;
+    cursor: pointer;
+    justify-content: center;
 }
 
 .btnCount:hover{

@@ -3,7 +3,7 @@ import "./Counter.css"
 
 const Counter = () => {
 
-    const {count, increase, decrease} = useCount(1, 10)
+    const {count, increase, decrease} = useCount(1, 5)
 
   return (
     <div className="counterContainer">

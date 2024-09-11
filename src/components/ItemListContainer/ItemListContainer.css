@@ -6,8 +6,6 @@ h2{
 }
 
 .subtitle{
-    display: flex;
-    justify-content: center;
     text-align: center;
     margin: 10px 30px 10px 30px;
     color: #707070;
