@@ -13,9 +13,9 @@ const NavBar = () => {
           </Link>
 
             <ul>
-                <li><NavLink to="/category/living">Living</NavLink></li>
-                <li><NavLink to="/category/comedor">Comedor</NavLink></li>
-                <li><NavLink to="/category/dormitorio">Dormitorio</NavLink></li>
+                <li><NavLink to="/categoria/living">Living</NavLink></li>
+                <li><NavLink to="/categoria/comedor">Comedor</NavLink></li>
+                <li><NavLink to="/categoria/dormitorio">Dormitorio</NavLink></li>
             </ul>
             <CartWidget/>
         </nav>

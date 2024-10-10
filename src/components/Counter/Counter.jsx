@@ -1,17 +1,35 @@
-import { useCount } from "../../customHooks/useCount"
-import "./Counter.css"
+import { useState } from "react";
+import "./Counter.css";
 
-const Counter = () => {
+const Counter = ({ inicial, stock, funcionAgregar }) => { 
 
-    const {count, increase, decrease} = useCount(1, 5)
+  const [counter, setCounter] = useState(inicial);
+
+  const increase = () => {
+    if (counter < stock) {
+      setCounter(counter +1)
+  }
+  };
+
+  const decrease = () => {
+    if ( counter > inicial) {
+      setCounter (counter - 1)
+  }
+  };
 
   return (
-    <div className="counterContainer">
+    <div className="buyContainer">
+      <div className="counterContainer">
         <button className="btnCount" onClick={decrease}> - </button>
-        <strong>{count}</strong>
+        <strong>{counter}</strong>
         <button className="btnCount" onClick={increase}> + </button>
-    </div>
-  )
-}
+      </div>
 
-export default Counter
+      <button className="btnBuy" onClick={() => funcionAgregar(counter)}>
+        Agregar al carrito
+      </button>
+    </div>
+  );
+};
+
+export default Counter;
