@@ -4,16 +4,16 @@ import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { db } from "../../services/config";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { toast, ToastContainer  } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const { idCategoria } = useParams();
 
   useEffect(() => {
-    setLoading(true); 
+    setLoading(true);
 
     const productosQuery = idCategoria
       ? query(collection(db, "productos"), where("idCat", "==", idCategoria))
@@ -25,15 +25,15 @@ const ItemListContainer = () => {
           const data = doc.data();
           return { id: doc.id, ...data };
         });
-        setProductos(newProduct); 
+        setProductos(newProduct);
       })
       .catch((error) => {
         toast.error("Error al obtener los productos: " + error.message);
       })
       .finally(() => {
-        setLoading(false); 
+        setLoading(false);
       });
-  }, [idCategoria]); 
+  }, [idCategoria]);
 
   return (
     <>
@@ -45,8 +45,12 @@ const ItemListContainer = () => {
         descanso y convivencia.
       </p>
       <ToastContainer />
-      {loading ? ( 
-        <p style={{ textAlign: 'center', marginTop: '50px', fontWeight: 'bold' }}>Cargando productos...</p>
+      {loading ? (
+        <p
+          style={{ textAlign: "center", marginTop: "50px", fontWeight: "bold" }}
+        >
+          Cargando productos...
+        </p>
       ) : (
         <ItemList productos={productos} />
       )}

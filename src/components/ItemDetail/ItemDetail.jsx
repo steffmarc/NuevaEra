@@ -22,17 +22,17 @@ const ItemDetail = ({
 
   const manejadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-    const item = {id, nombre, precio };
+    const item = { id, nombre, precio };
     agregarAlCarrito(item, cantidad);
   };
 
   const manejarVolver = () => {
-    setAgregarCantidad(0); 
-};
+    setAgregarCantidad(0);
+  };
 
-const formatNumber = (number) => {
-  return number.toLocaleString("es-AR"); 
-};
+  const formatNumber = (number) => {
+    return number.toLocaleString("es-AR");
+  };
 
   return (
     <div className="detailContainer">
@@ -77,23 +77,28 @@ const formatNumber = (number) => {
             <strong>Precio: </strong>${formatNumber(precio)}
           </p>
           <p>
-          <strong>Stock: </strong>{stock} 
+            <strong>Stock: </strong>
+            {stock}
           </p>
         </div>
         <div className="buyContainer">
-                {agregarCantidad > 0 ? (
-                    <>
-                        <button onClick={manejarVolver} className="btnBack">Volver atrás</button>
-                        <Link to="../Cart" className="btnBuy">Ir al carrito</Link>
-                    </>
-                ) : (
-                    <Counter
-                        inicial={1}
-                        stock={stock}
-                        funcionAgregar={manejadorCantidad}
-                    />
-                )}
-            </div>
+          {agregarCantidad > 0 ? (
+            <>
+              <button onClick={manejarVolver} className="btnBack">
+                Volver atrás
+              </button>
+              <Link to="../Cart" className="btnBuy">
+                Ir al carrito
+              </Link>
+            </>
+          ) : (
+            <Counter
+              inicial={1}
+              stock={stock}
+              funcionAgregar={manejadorCantidad}
+            />
+          )}
+        </div>
       </article>
     </div>
   );
