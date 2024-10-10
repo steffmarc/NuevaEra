@@ -1,9 +1,18 @@
-# React + Vite
+Tienda Nueva Era:
+Este es un proyecto de ecommerce diseñado para el curso de React JS en Coderhouse. La aplicación permite a los usuarios explorar  muebles para el hogar y realizar compras de manera sencilla y rápida. Los productos y las órdenes de compra se gestionan y almacenan en Firebase.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tecnologías y herramientas utilizadas:
+Vite
+React
+React-Router-DOM
+Firebase
+Toastify
+Sweet Alert2
+Bootstrap
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# NuevaEra
+Funcionalidades:
+Explorar un catálogo de muebles disponibles
+Añadir productos al carrito de compras
+Visualizar el estado y contenido del carrito
+Filtrar productos según categorías
+Completar una compra con la información del cliente y los muebles seleccionados
