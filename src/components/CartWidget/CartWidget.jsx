@@ -13,12 +13,11 @@ const CartWidget = () => {
   return (
     <div>
       <Link to="/cart">
-      <ShoppingCartIcon className='cart'/>
       </Link>
         {
-          cantidadTotal > 0 && <span>{cantidadTotal}</span>
+          cantidadTotal > 0 && <span style={{color: 'white'}}>({cantidadTotal})</span>
         }
-
+        <ShoppingCartIcon className='cart'/>
         
     </div>
   )

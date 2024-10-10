@@ -1,37 +1,44 @@
-.CartItem {
+.itemContainer{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px 16px 6px 16px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.btnDelete{
+    background-color: #D5A6A4;
+    border-style: none;
+    border-radius: 50px;
+    width: auto;
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-    position: relative; 
 }
 
-.CartItem h4 {
-    margin: 0; 
+.btnDelete:hover{
+    background-color: #84738C;
+    color: white;
 }
 
-.Price {
-    margin: 0 10px; 
+
+.subtotal{
+    width: 200px;
+    font-size: 18px;
 }
 
-.DeleteProductButton {
-    background-color: #D5A6A4; 
-    border: none; 
-    border-radius: 50%; 
-    color: rgb(112, 112, 112); 
-    font-size: 24px; 
-    cursor: pointer; 
-    position: absolute; 
-    top: 10px; 
-    right: 10px; 
-    padding: 4px; 
-    width: 30px; 
-    height: 30px; 
-    transition: background-color 0.3s ease;
-}
-
-.DeleteProductButton:hover {
-    background-color: #84738C; 
-    color: white; 
+.subDel{
+    display: flex;
+    flex-direction: row;
 }

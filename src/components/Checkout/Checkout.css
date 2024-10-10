@@ -1,0 +1,82 @@
+.CheckoutContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.CheckoutContainer h2 {
+    font-size: 2rem;
+    color: #84738C;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.CheckoutContainer form {
+    display: flex;
+    flex-direction: column;
+}
+
+.CheckoutContainer form > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.CheckoutContainer form > div p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+    width: 35%;
+}
+
+.CheckoutContainer label {
+    font-size: 1rem;
+    color: #555;
+    width: 200px;
+    display: block;
+}
+
+.CheckoutContainer input {
+    width: calc(100% - 220px); 
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.CheckoutContainer button {
+    width: 100%;
+    background-color: #D5A6A4;
+    color: white;
+    padding: 10px 0;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.CheckoutContainer button:hover {
+    background-color: #84738C;
+    color: white;
+}
+
+.ErrorMessage {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.Strong {
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    color: #84738C;
+}

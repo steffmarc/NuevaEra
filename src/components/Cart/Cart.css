@@ -1,56 +1,54 @@
-.CartContainer {
-    padding: 20px;
+.containerCart{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.CartTitle {
-    font-size: 2rem;
+
+.cartTitle{
+    text-align: center;
+    color: #84738C;
+    margin-top: 25px;
     margin-bottom: 20px;
 }
 
-.CartItems {
+.cartInfo{
     display: flex;
     flex-direction: column;
-}
-
-.EmptyCart {
-    text-align: center;
-    margin: 20px;
-}
-
-.CartSummary {
+    align-items: flex-end;
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    font-size: 16px;
+    border-bottom: 3px solid #D5A6A4;
+    margin-bottom: 20px;
 }
 
-.EmptyCartButton {
-    background-color: #D5A6A4; 
-    border: none; 
-    border-radius: 50px; 
-    padding: 10px 15px; 
-    color: rgb(47, 47, 47); 
-    cursor: pointer; 
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px; 
-}
+.buttonContainer {
+    text-align: right;
+    margin-bottom: 25px;
+  }
 
-.EmptyCartButton:hover {
-    background-color: #84738C; 
-    color: white; 
-}
-
-.CheckoutButton {
-    background-color: #D5A6A4; 
-    border: none; 
-    border-radius: 50px; 
-    padding: 10px 15px; 
-    color: rgb(47, 47, 47); 
-    cursor: pointer; 
-    transition: background-color 0.3s ease;
-}
-
-.CheckoutButton:hover {
-    background-color: #84738C; 
-    color: white; 
-}
+.vaciarCarritoBtn {
+    background: none;
+    border: none;
+    color: #84738C;
+    text-decoration: underline;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0 20px;
+    margin-right: 10px;
+  }
+  
+  .finalizarCompraLink {
+    display: inline-block;
+    background-color: #D5A6A4;
+    color: rgb(47, 47, 47);
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  

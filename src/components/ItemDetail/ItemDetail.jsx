@@ -30,6 +30,10 @@ const ItemDetail = ({
     setAgregarCantidad(0); 
 };
 
+const formatNumber = (number) => {
+  return number.toLocaleString("es-AR"); 
+};
+
   return (
     <div className="detailContainer">
       <div className="imgContainer">
@@ -70,7 +74,7 @@ const ItemDetail = ({
             </p>
           )}
           <p className="price">
-            <strong>Precio: </strong>${precio}
+            <strong>Precio: </strong>${formatNumber(precio)}
           </p>
           <p>
           <strong>Stock: </strong>{stock} 
@@ -79,7 +83,7 @@ const ItemDetail = ({
         <div className="buyContainer">
                 {agregarCantidad > 0 ? (
                     <>
-                        <button onClick={manejarVolver} className="btnBack">Volver</button>
+                        <button onClick={manejarVolver} className="btnBack">Volver atrás</button>
                         <Link to="../Cart" className="btnBuy">Ir al carrito</Link>
                     </>
                 ) : (

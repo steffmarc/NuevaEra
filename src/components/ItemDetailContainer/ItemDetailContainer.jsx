@@ -34,7 +34,7 @@ useEffect(()=>{
 
 
 return (
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <ToastContainer />
     {loading ? (
       <ClipLoader color={"#4f46e5"} loading={loading} size={50} />
