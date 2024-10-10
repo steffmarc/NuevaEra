@@ -1,59 +1,70 @@
 import { useState, createContext } from "react";
 
 export const CartContext = createContext({
-  cart: [],
+  carrito: [],
   total: 0,
-  totalAmount: 0,
-})
+  cantidadTotal: 0,
+});
 
-export const CartProvider = ({children}) => {
-  const [ cart, setCart ] = useState ([])
-  const [ total, setTotal ] = useState (0)
-  const [ totalAmount, setTotalAmount ] = useState (0)
+export const CartProvider = ({ children }) => {
+  const [carrito, setCarrito] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [cantidadTotal, setCantidadTotal] = useState(0);
 
 
-  const addToCart = (item, cantidad) =>{
-    const isInCart = cart.find(prod => prod.item.id === item.id)
 
-    if(!isInCart){
-      setCart(prev => [...prev, {item, cantidad}])
-      setTotal(prev => prev + (item.precio * cantidad))
-      setTotalAmount(prev => prev + cantidad)
+  const agregarAlCarrito = (item, cantidad) => {
+    const productoExistente = carrito.find((prod) => prod.item.id === item.id);
+
+    if (!productoExistente) {
+      setCarrito((prev) => [...prev, { item, cantidad }]);
+      setCantidadTotal((prev) => prev + cantidad);
+      setTotal((prev) => prev + item.precio * cantidad);
     } else {
-      const updatedCart = cart.map ( prod => {
-        if(prod.item.id === item.id){
-          return {...prod, cantidad: prod.cantidad + cantidad}
+      const carritoActualizado = carrito.map((prod) => {
+        if (prod.item.id === item.id) {
+          return { ...prod, cantidad: prod.cantidad + cantidad };
         } else {
-          return prod
+          return prod;
         }
-      })
-      setCart(updatedCart)
-      setTotal(prev => prev + (item.precio * cantidad))
-      setTotalAmount(prev => prev + cantidad)
+      });
+      setCarrito(carritoActualizado);
+      setCantidadTotal((prev) => prev + cantidad);
+      setTotal((prev) => prev + item.precio * cantidad);
     }
-  } 
+  };
 
-  const deleteProduct = (id) => {
-    const deletedProduct = cart.find(prod => prod.item.id === id)
-    const updatedCart = cart.filter(prod => prod.item.id !== id)
+  const eliminarProducto = (id) => {
+    const productoEliminado = carrito.find((prod) => prod.item.id === id);
+    const carritoActualizado = carrito.filter((prod) => prod.item.id !== id);
 
-    setCart(updatedCart)
-    setTotalAmount(prev => prev - deleteProduct.cantidad)
-    setTotal(prev => prev - (deleteProduct.item.precio * deleteProduct.cantidad))
-  }
+    setCarrito(carritoActualizado);
+    setCantidadTotal((prev) => prev - productoEliminado.cantidad);
+    setTotal(
+      (prev) =>
+        prev - productoEliminado.item.precio * productoEliminado.cantidad
+    );
+  };
 
-  const emptyCart = () => {
-    setCart([])
-    setTotal(0)
-    setTotalAmount(0)
-  }
+  const vaciarCarrito = () => {
 
-  return(
-    <CartContext.Provider value={{cart, total, totalAmount, addToCart, deleteProduct, emptyCart}}>
-        {children}
+      setCarrito([]);
+      setCantidadTotal(0);
+      setTotal(0);
+  };
+
+  return (
+    <CartContext.Provider
+      value={{
+        carrito,
+        total,
+        cantidadTotal,
+        agregarAlCarrito,
+        eliminarProducto,
+        vaciarCarrito,
+      }}
+    >
+      {children}
     </CartContext.Provider>
-  )
-    
-}
-
-
+  );
+};

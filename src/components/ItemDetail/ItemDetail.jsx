@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Counter from "../Counter/Counter";
 
 const ItemDetail = ({
+  id,
   nombre,
   stock,
   precio,
@@ -21,7 +22,7 @@ const ItemDetail = ({
 
   const manejadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-    const item = { nombre, precio };
+    const item = {id, nombre, precio };
     agregarAlCarrito(item, cantidad);
   };
 
@@ -79,7 +80,7 @@ const ItemDetail = ({
                 {agregarCantidad > 0 ? (
                     <>
                         <button onClick={manejarVolver} className="btnBack">Volver</button>
-                        <Link to="/cart" className="btnBuy">Finalizar Compra</Link>
+                        <Link to="../Cart" className="btnBuy">Ir al carrito</Link>
                     </>
                 ) : (
                     <Counter

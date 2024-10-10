@@ -1,0 +1,37 @@
+.CartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    position: relative; 
+}
+
+.CartItem h4 {
+    margin: 0; 
+}
+
+.Price {
+    margin: 0 10px; 
+}
+
+.DeleteProductButton {
+    background-color: #D5A6A4; 
+    border: none; 
+    border-radius: 50%; 
+    color: rgb(112, 112, 112); 
+    font-size: 24px; 
+    cursor: pointer; 
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    padding: 4px; 
+    width: 30px; 
+    height: 30px; 
+    transition: background-color 0.3s ease;
+}
+
+.DeleteProductButton:hover {
+    background-color: #84738C; 
+    color: white; 
+}
